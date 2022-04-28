@@ -1,0 +1,30 @@
+#include<bits/stdc++.h>
+#define ll long long int
+using namespace std;
+int main(){
+  int t;
+  cin>>t;
+  while(t--){
+      ll n,r,count=0;
+      cin>>n>>r;
+      ll arr1[n];
+      ll arr2[n];
+      for(ll i=0;i<n;i++)cin>>arr1[i];
+      for(ll j=0;j<n;j++)cin>>arr2[j];
+     vector< pair<ll,ll>>m_p;
+      ll eff_cost;
+      for(auto k=0;k<n;k++){
+          eff_cost=arr1[k]-arr2[k];
+         m_p.push_back(make_pair(eff_cost,arr1[k]));
+      }
+      sort(m_p.begin(),m_p.end());
+     
+     for(ll i=0;i<n;i++){
+        if (m_p[i].second>r) continue;
+        ll dif = (r-(m_p[i].second - m_p[i].first))/m_p[i].first;
+        count+=dif;
+        r-=(dif*m_p[i].first);
+    }
+      cout<<count<<endl;
+  }
+}
