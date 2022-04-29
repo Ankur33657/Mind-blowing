@@ -1,0 +1,31 @@
+#include<bits/stdc++.h>
+#include<utility>
+#define ll long long int
+using namespace std;
+int main(){
+ ll t;
+ cin>>t;
+ while(t--){
+     ll x,y,k,n,page_req;
+     bool ans=false;;
+     cin>>x>>y>>k>>n;
+     page_req=x-y;
+     vector<pair<ll,ll>>pr;
+
+     for(auto i=0;i<n;i++){
+         ll page,price;
+         cin>>page>>price;
+         pr.push_back(make_pair(page,price));
+         if(pr[i].first>=page_req && pr[i].second<=k){
+             ans=true;
+         }
+     }
+     if(ans){
+         cout<<"LuckyChef"<<endl;
+     }
+     else{
+     cout<<"UnluckyChef"<<endl;
+     }
+     
+ }
+}
