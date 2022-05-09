@@ -1,0 +1,21 @@
+#include<bits/stdc++.h>
+#define ll long long int
+using namespace std;
+int main(){
+    ll t;
+    cin>>t;
+    while(t--){
+        ll n,x,y, ans=0;
+        cin>>n>>x>>y;
+        ans+=(2*n)-2;
+        ll temp_xless=x-1;
+        ll temp_xmore=n-x;
+        ll temp_yless=y-1;
+        ll temp_ymore=n-y;
+        ans+=min(temp_xless,temp_yless);
+        ans+=min(temp_xless,temp_ymore);
+        ans+=min(temp_xmore,temp_yless);
+        ans+=min(temp_xmore,temp_ymore);
+        cout<<ans<<endl;
+    }
+}
