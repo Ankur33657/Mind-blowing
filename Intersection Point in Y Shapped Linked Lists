@@ -1,0 +1,31 @@
+Node* reverse(Node* head){
+    Node*curr=head;
+    Node*pre=NULL;
+    while(curr!=NULL){
+        Node*tmp=curr->next;
+        curr->next=pre;
+        pre=curr;
+        curr=tmp;
+    }
+    return pre;
+}
+int intersectPoint(Node* head1, Node* head2)
+{
+    Node*R1=reverse(head1);
+    Node*R2=reverse(head2);
+ 
+    if(R1==R2){
+    while(R1!=NULL && R2!=NULL){
+       if(R1->next !=R2->next){
+           return R1->data;
+       }
+       else{
+           R1=R1->next;
+           R2=R2->next;
+       }
+    }
+  }
+    else
+    return -1;
+}
+
